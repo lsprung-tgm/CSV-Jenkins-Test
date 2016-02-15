@@ -4,28 +4,28 @@ __author__ = "Lukas Sprung"
 import csv, sys
 
 
-class Sprung_CSV():
+class Sprung_CSV(object):
     pfad = ""
     def __init__(self,pfad):
         self.pfad=pfad
         dialekt = self.sniffer(self.pfad)
         print(dialekt)
         #Der Dialekt eines CSV-Files wird ueberprueft und das File wird in der Konsole ausgegeben
-        self.readCSV(self.pfad)
+        self.readCSV()
         print("Speicherung in ein neues File "+pfad+"NEU.csv")
         #Ein neues CSV File mit validen Header wird erstellt
-        self.writeinCSV(self.pfad+'NEU')
+        self.writeinCSV()
         #Ein Csv File wird kopiert und extra Content wird angehaengt
-        self.newfile(self.pfad)
+        self.newfile()
         print("Speicherung in ein neues File "+pfad+"NEW.csv")
     """
         Diese Klasse enthält Methoden um ein CSV-File:
             - einzulesen und auszugeben
             - Ein neues Csv File zu erstellen und in dieses etwas hinein zu speichern
     """
-    def writeinCSV(self,filename):
+    def writeinCSV(self):
         #Das File wird geoeffnet
-        with open(filename+'.csv', 'w') as csvfile:
+        with open(self.pfad+'NEU.csv', 'w') as csvfile:
             fieldnames = ['T', 'WV', 'WK','BZ','SPR','WBER','ABG','UNG','SPOE',
                           'FPOE','OEVP','GRUE','NEOS','WWW','ANDAS','GFW','SLP','WIFF','M','FREIE']
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
@@ -38,12 +38,12 @@ class Sprung_CSV():
         Diese Methode schreibt den Inhalt eines Files in ein anderes, sprich das File wird kopiert.
         Außerdem kann extra Content an das File gefuegt werden
     """
-    def newfile(self,filename):
+    def newfile(self):
         #Ausgangsdaten
-        ifile  = open(filename+'.csv', "r")
+        ifile  = open(self.pfad+'.csv', "r")
         reader = csv.reader(ifile)
         #Exportfile
-        ofile  = open(filename+'NEW.csv', "w")
+        ofile  = open(self.pfad+'NEW.csv', "w")
         writer = csv.writer(ofile, delimiter='\t', quotechar='"', quoting=csv.QUOTE_ALL)
         #Zuerst werden die alten Daten in das File drangehaengt
         for row in reader:
@@ -65,8 +65,8 @@ class Sprung_CSV():
         Dialekte: ['unix', 'excel-tab', 'excel']
         Ich habe die Methode mit allen  verschiedenen Dialekten getestet und alle konnten gleichermassen ausgelesen werden
     """
-    def readCSV(self,filename):
-        filename = filename+'.csv'
+    def readCSV(self):
+        filename = self.pfad+'.csv'
         out = []
         with open(filename, 'r') as f:
             reader = csv.reader(f, self.sniffer(filename))
@@ -91,5 +91,6 @@ class Sprung_CSV():
             dialect = None
         return dialect
 
-if __name__ == '__main__':
-    test = Sprung_CSV("C:\\Users\\lspru\\Desktop\\ergebnissems")
+
+#if __name__ == '__main__':
+ #   test = Sprung_CSV("C:\\Users\\lspru\\Desktop\\ergebnissems")
