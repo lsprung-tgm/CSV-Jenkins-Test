@@ -74,13 +74,31 @@ def sniffer(filename):
     return dialect
 
 #Der Dateipfad wird abgefragt
-pfad=input('Bitte geben sie den Pfad zur CSV Datei an. (Ohne Dateiendung)-> Beispiel->C:\\Users\\lspru\\Desktop\\ergebnisse: ')
-print(sniffer(pfad))
+#pfad= "C:\\Users\\lspru\\Desktop\\ergebnissems"
+    #input('Bitte geben sie den Pfad zur CSV Datei an. (Ohne Dateiendung)-> Beispiel->C:\\Users\\lspru\\Desktop\\ergebnisse: ')
+#print(sniffer(pfad))
 #Der Dialekt eines CSV-Files wird ueberprueft und das File wird in der Konsole ausgegeben
-readCSV(pfad)
-print("Speicherung in ein neues File "+pfad+"NEU.csv")
+#readCSV(pfad)
+#print("Speicherung in ein neues File "+pfad+"NEU.csv")
 #Ein neues CSV File mit validen Header wird erstellt
-writeinCSV(pfad+'NEU')
+#writeinCSV(pfad+'NEU')
 #Ein Csv File wird kopiert und extra Content wird angehaengt
-newfile(pfad)
-print("Speicherung in ein neues File "+pfad+"NEW.csv")
+#newfile(pfad)
+#print("Speicherung in ein neues File "+pfad+"NEW.csv")
+
+
+#def read_file_test(self):
+    #   test = Sprung_CSV("C:\\Users\\lspru\\Desktop\\ergebnissems")
+    #  self.assertFalse(test.readCSV(),[])
+
+    #def read_new_file_test(self):
+     #   test = Sprung_CSV("C:\\Users\\lspru\\Desktop\\ergebnissems")
+      #  test.newfile()
+       # test2 = Sprung_CSV("C:\\Users\\lspru\\Desktop\\ergebnissemsNEW")
+        #self.assertFalse(test2.readCSV(),[])
+
+    #def read_new_file_test2(self):
+     #   test = Sprung_CSV("C:\\Users\\lspru\\Desktop\\ergebnissems")
+      #  test.writeinCSV()
+       # test2 = Sprung_CSV("C:\\Users\\lspru\\Desktop\\ergebnissemsNEU")
+        #self.assertFalse(test2.readCSV(),[])
