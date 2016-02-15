@@ -15,9 +15,6 @@ class TestMyFunctions(unittest.TestCase):
     def testwrite2(self):
         self.test.newfile()
 
-    def testsniffer(self):
-        self.testsniffer("C:\\Users\\lspru\\Desktop\\ergebnissems")
-
 if __name__ == '__main__':
     unittest.main()
 
